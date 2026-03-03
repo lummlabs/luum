@@ -9,3 +9,5 @@ coverage/
 main.py
 .env
 *.log
+__pycache__/
+*.pyc
