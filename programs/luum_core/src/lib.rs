@@ -9,7 +9,6 @@ pub mod state;
 pub mod utils;
 
 use contexts::*;
-use errors::LuumError;
 use events::*;
 
 declare_id!("LUMx4VrS8NqZgP7tGbHP4bXWk2HqTdGe6NxVCrnAK5v");
