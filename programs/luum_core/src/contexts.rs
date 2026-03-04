@@ -1,5 +1,5 @@
-use anchor_lang::prelude::*;
 use crate::state::*;
+use anchor_lang::prelude::*;
 
 #[derive(Accounts)]
 #[instruction(wallet: Pubkey, slot_start: u64, slot_end: u64)]

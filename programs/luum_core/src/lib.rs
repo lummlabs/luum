@@ -42,7 +42,11 @@ pub mod luum_core {
             timestamp: analysis.last_updated,
         });
 
-        msg!("Analysis created for wallet {} over {} slots", wallet, range);
+        msg!(
+            "Analysis created for wallet {} over {} slots",
+            wallet,
+            range
+        );
         Ok(())
     }
 

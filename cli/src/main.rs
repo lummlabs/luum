@@ -14,7 +14,10 @@ struct Cli {
 
 fn run_analyze(args: &AnalyzeArgs) {
     println!("Analyzing wallet: {}", args.address);
-    println!("Looking back {} days, min amount: {}", args.days, args.min_amount);
+    println!(
+        "Looking back {} days, min amount: {}",
+        args.days, args.min_amount
+    );
 
     let sample_data: Vec<(String, u64, u32)> = vec![
         ("Api1111111111111111111111111111111".into(), 50_000, 1200),
@@ -38,7 +41,13 @@ fn run_analyze(args: &AnalyzeArgs) {
 
     let flows: Vec<(String, u64, String)> = clusters
         .iter()
-        .map(|c| (c.address.clone(), c.total_amount, format!("{:?}", c.category)))
+        .map(|c| {
+            (
+                c.address.clone(),
+                c.total_amount,
+                format!("{:?}", c.category),
+            )
+        })
         .collect();
 
     let graph = luum_math::SankeyBuilder::new(&args.address[..8])
@@ -55,7 +64,10 @@ fn run_analyze(args: &AnalyzeArgs) {
 
 fn run_export(args: &ExportArgs) {
     let dest = args.output.as_deref().unwrap_or("stdout");
-    println!("Exporting {} data for {} to {}", args.format, args.address, dest);
+    println!(
+        "Exporting {} data for {} to {}",
+        args.format, args.address, dest
+    );
 }
 
 fn main() {

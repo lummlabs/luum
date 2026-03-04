@@ -49,10 +49,7 @@ pub fn determine_tier(balance: u64, total_supply: u64) -> u8 {
 }
 
 pub fn validate_slot_range(start: u64, end: u64) -> Result<u64> {
-    require!(
-        end > start,
-        crate::errors::LuumError::InvalidSlotRange
-    );
+    require!(end > start, crate::errors::LuumError::InvalidSlotRange);
     let range = end - start;
     require!(
         range <= 432_000 * 30,
